@@ -1,0 +1,25 @@
+@{
+    var user = (string) ViewData["User"];
+}
+<header class="topo">
+    <div>
+        <a href='@Url.Action("Index","Home")'>
+            <img class="logotipo" src="imagens/logo.png" alt="Logo da empresa ponto digital" title="Inicio">
+        </a>
+    </div>
+    <nav class="menu">
+        <ul>
+            <div class="letras_nav">
+                <li><a href="#titulo_planos" title="Nossos pacotes">Planos</a></li>
+                <li><a href="#desenvolvedor" title="Quem somos">Quem somos</a></li>
+                <li><a href='@Url.Action("Index","Cadastro")' title="Serviço de atendimento ao cliente">SAC</a></li>
+                 @if (string.IsNullOrEmpty(user))
+            {
+            <li><a id="bt_login" asp-controller="Cadastro" asp-action="Login" href='@Url.Action("Index","Cadastro")'>Cadastro</a></li>
+            }else{
+            <li><a id="bt_logout" asp-controller="Cadastro" asp-action="Logout" href='@Url.Action("Index","Cadastro")'>Logout</a></li>
+            }
+            </div>
+        </ul>
+    </nav>
+</header>

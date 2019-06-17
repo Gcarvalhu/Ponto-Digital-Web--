@@ -1,0 +1,106 @@
+@using Ponto_Digital_.Models;
+@{
+    Layout = "_Layout";
+    Html.RenderPartial("_HeaderNavBar");
+}
+
+    <section>
+        <div class="fundo_cadastro">
+            <div id="cadastro_box">
+                <div id="login-box-interno">
+                    <div id="login-box-label">Cadastro</div>
+                    <form method="POST" action="Cadastro/Cadastrar">
+                    <fieldset>
+                         <div>
+                <label for="nome">Nome Completo</label>
+                <br />
+                <input id="nome" type="text" maxlength="20" minlength="3" name="nome" />
+            </div>
+
+            <div>
+                <label for="endereco">Endereço</label>
+                <br />
+                <input id="endereco" type="text" maxlength="20" minlength="3" name="endereco" />
+            </div>
+
+            <div>
+                <label for="telefone">Telefone para contato</label>
+                <br />
+                <input id="telefone" type="text" name="telefone"/>
+            </div>
+
+            <div>
+                <label for="email">E-mail</label>
+                <br />
+                <input id="email" type="email" name="email" />
+            </div>
+            
+            <div>
+                <label for="data-nascimento">Data de Nascimento</label>
+                <br />
+                <input id="data-nascimento" type="date" name="data-nascimento" />
+            </div>
+            
+            <div>
+                <label for="senha">Senha</label>
+                <br />
+                <input id="senha" type="password" name="senha" />
+            </div>
+            
+            <div>
+                <label for="confirmar-senha">Confirme sua senha</label>
+                <br />
+                <input id="confirmar-senha" type="password" name="confirmar-senha" />
+            </div>
+            <input type="submit" value="Finalizar Cadastro!" href='@Url.Action("Index","Home")'/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        </div>
+        </div>
+        @{
+        var user = (ClienteModel) ViewData["usuario"];
+        var avaliacoes = ViewData["avaliacoes"] as List<ComentarioModel>;
+        int contador = 0;
+        }
+<div class="conteudo">
+
+<h2>Deixe sua avaliação do produto</h2>
+<form action="RetornarAvaliacao" method="POST">
+@if(user == null){
+                <input type="text" name="nome" id="nome_avaliacao" placeholder="Nome">
+                } else{
+                <input type="text" name="nome" id="nome_avaliacao" value="@user.Nome" > 
+                }
+                <br />
+                <textarea name="comentario" id="textarea1" cols="40" rows="20" placeholder="Deixe seu comentário"></textarea>
+                <br />
+                @if(user != null){
+                    <input id="enviar" type="submit" value="►" onclick='alert("Depoimento enviado!")'>
+                }else{
+                    <a href='@Url.Action("Index","Home")' id="enviar" onclick='alert("Login necessário!")' style="padding:0.3em; background-color:gray">ENVIAR ►</a>
+                }
+</form>
+    </section>
+    
+    <section class="duvidas">
+        <h2>Duvidas frequentes:</h2>
+        <p class="texto_duvidas">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum modi quaerat
+            laudantium, at, rerum officiis aliquid atque maxime odit, optio labore illum quis aut laborum ipsam deleniti
+            maiores explicabo neque.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum modi quaerat
+            laudantium, at, rerum officiis aliquid atque maxime odit, optio labore illum quis aut laborum ipsam deleniti
+            maiores explicabo neque?</p>
+        <br>
+        <p class="texto_duvidas">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum modi quaerat
+            laudantium, at, rerum officiis aliquid atque maxime odit, optio labore illum quis aut laborum ipsam deleniti
+            maiores explicabo neque.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum modi quaerat
+            laudantium, at, rerum officiis aliquid atque maxime odit, optio labore illum quis aut laborum ipsam deleniti
+            maiores explicabo neque?</p>
+        <br>
+        <p class="texto_duvidas">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum modi quaerat
+            laudantium, at, rerum officiis aliquid atque maxime odit, optio labore illum quis aut laborum ipsam deleniti
+            maiores explicabo neque.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum modi quaerat
+            laudantium, at, rerum officiis aliquid atque maxime odit, optio labore illum quis aut laborum ipsam deleniti
+            maiores explicabo neque.?</p>
+    </section>

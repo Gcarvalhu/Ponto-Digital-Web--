@@ -1,0 +1,119 @@
+@{
+    Layout = "_Layout";
+
+    Html.RenderPartial("_HeaderNavBar");
+}
+<section>
+        <div class="fundo-login">
+            <div id="login_box">
+                <div id="login-box-interno">
+                    <div id="login-box-label">
+                        <h2>Login</h2>
+                        <div class="forms">
+                            
+                            
+                            <form action='@Url.Action("Index" , "Home")' method="POST">
+                                <input type="email" name="email" placeholder="E-mail">
+                                <br />
+                                <input type="password" name="senha" id="password" placeholder="Senha">
+                                <br />
+                                <input type="submit" value="Fazer login">
+                                <br />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+</section>
+<section class="section1">
+    <p class="texto-da-home">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci atque tempore
+        deleniti rem. Nisi cumque, alias dolore iure magni corporis necessitatibus, vero ipsa quae a
+        temporibus? Sint Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptates omnis,
+        soluta eum alias ex fugit deleniti. Ad, magni! Dolorum inventore perspiciatis doloribus tempore ex
+        reprehenderit, blanditiis impedit consequuntur mollitia.Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit.l</p>
+    <picture class="foto-da-home">
+        <img class="foto1" src="imagens/03200857285792.jpg" alt="Pessoa utilizando nosso serviço do ponto digital">
+    </picture>
+</section>
+<section class="beneficios">
+    <picture class="imagem-benef">
+        <img src="imagens/24 horas site.png" alt="" height="150px">
+    </picture>
+    <div class="texto-beneficios">
+        <p>24 horas a sua disposição,não dormimos em serviço,nem você!</p>
+    </div>
+    <picture class="imagem-benef2">
+        <img src="imagens/cifrão site.png" alt="" height="150px;">
+    </picture>
+    <div class="texto-benef2">
+        <p>O nosso objetivo é fazer com que haja um ótimo serviço para as pessoas e que seja acessivel,o melhor
+            produto com o menor preço do mercado!</p>
+    </div>
+</section>
+<h2 id="titulo_planos">Planos:</h2>
+<section id="pacotes">
+    <div class="planos">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut doloribus vero voluptate numquam quam non
+            autem tempora. Expedita, numquam beatae! Animi doloribus iure id nam sapiente vitae, aut nisi dolores!
+        </p>
+        <br>
+        <div class="preco">
+            <p>GRATUITO!!!</p>
+        </div>
+    </div>
+    <div class="planos">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut doloribus vero voluptate numquam quam non
+            autem tempora. Expedita, numquam beatae! Animi doloribus iure id nam sapiente vitae, aut nisi dolores!
+        </p>
+        <br>
+        <div class="preco">
+            <p>149,90/mês</p>
+        </div>
+    </div>
+    <div class="planos">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut doloribus vero voluptate numquam quam non
+            autem tempora. Expedita, numquam beatae! Animi doloribus iure id nam sapiente vitae, aut nisi dolores!
+        </p>
+        <br>
+        <div class="preco">
+            <p>299,90/mês</p>
+        </div>
+    </div>
+    <div class="planos">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut doloribus vero voluptate numquam quam non
+            autem tempora. Expedita, numquam beatae! Animi doloribus iure id nam sapiente vitae, aut nisi dolores!
+        </p>
+        <br>
+        <div class="preco">
+            <p>A definir</p>
+        </div>
+    </div>
+</section>
+<section class="Desenvolvedores">
+    <h2 id="desenvolvedor">Desenvolvedores</h2>
+    <div class="texto-desenvolvedor">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum exercitationem aliquid vel hic, expedita
+            ipsum commodi quam dolor natus, consequatur excepturi labore eveniet aliquam. Aspernatur dolorum magnam
+            repellendus blanditiis culpa!Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+            exercitationem aliquid vel hic, expedita ipsum commodi quam dolor natus, consequatur excepturi labore
+            eveniet aliquam. Aspernatur dolorum magnam repellendus blanditiis culpa!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Harum exercitationem aliquid vel hic, expedita ipsum commodi quam dolor
+            natus, consequatur excepturi labore eveniet aliquam. Aspernatur dolorum magnam repellendus blanditiis
+            culpa!</p>
+    </div>
+    <div class="titulo-alinhado">
+        <h3>Carlos Eduardo Tsukamoto</h3>
+        <h3>César Felipe Sportore</h3>
+    </div>
+    <picture class="imagem_dev">
+        <img class="classe1" src="imagens/carlos.jpg" alt="">
+        <img class="classe2" src="imagens/296331_261981107170499_759395312_n.jpg" alt="">
+    </picture>
+</section>
+<section class="mapa">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1958340837223!2d-46.65807058440677!3d-23.56140906748049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59ceb1eb771f%3A0xe904f6a669744da1!2sMuseu+de+Arte+de+S%C3%A3o+Paulo+Assis+Chateaubriand!5e0!3m2!1spt-BR!2sbr!4v1552589701608"
+        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</section>
