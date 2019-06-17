@@ -1,7 +1,9 @@
 @using Ponto_Digital_.Models;
+@using Microsoft.AspNetCore.Http;
 @{
     Layout = "_Layout";
     Html.RenderPartial("_HeaderNavBar");
+
 }
 
     <section>
@@ -67,20 +69,26 @@
 <div class="conteudo">
 
 <h2>Deixe sua avaliação do produto</h2>
-<form action="RetornarAvaliacao" method="POST">
-@if(user == null){
-                <input type="text" name="nome" id="nome_avaliacao" placeholder="Nome">
-                } else{
-                <input type="text" name="nome" id="nome_avaliacao" value="@user.Nome" > 
-                }
-                <br />
-                <textarea name="comentario" id="textarea1" cols="40" rows="20" placeholder="Deixe seu comentário"></textarea>
-                <br />
-                @if(user != null){
-                    <input id="enviar" type="submit" value="►" onclick='alert("Depoimento enviado!")'>
-                }else{
-                    <a href='@Url.Action("Index","Home")' id="enviar" onclick='alert("Login necessário!")' style="padding:0.3em; background-color:gray">ENVIAR ►</a>
-                }
+<form action='@Url.Action("RetornarComentario","Home")' method="POST">
+    @if(user == null)
+    {
+        <input type="text" name="nome" id="nome_avaliacao" placeholder="Nome">
+    } 
+    else
+    {
+        <input type="text" name="nome" id="nome_avaliacao" value="@user.Nome" > 
+    }
+    <br />
+    <textarea name="comentario" id="textarea1" cols="40" rows="20" placeholder="Deixe seu comentário"></textarea>
+    <br />
+    @if(@Model != null)
+    {
+        <input id="enviar" type="submit" value="►" onclick='alert("Depoimento enviado!")'>
+    }
+    else
+    {
+        <a href='@Url.Action("Index","Home")' id="enviar" onclick='alert("Login necessário!")' style="padding:0.3em; background-color:gray">ENVIAR ►</a>
+    }
 </form>
     </section>
     

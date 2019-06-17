@@ -12,14 +12,19 @@ namespace Pontodigitaloficial.Controllers
         private const string SESSION_CLIENTE = "_CLIENTE";
         private ClienteRepositorio clienteRepositorio =  new ClienteRepositorio();
         private ComentarioRepositorio comentarioRepositorio = new ComentarioRepositorio();
+
         public IActionResult Index(){
-            RecuperarUserLogado();
-            return View();
+            var email = HttpContext.Session.GetString(SESSION_EMAIL) == null ? "" : HttpContext.Session.GetString(SESSION_EMAIL);
+            var cliente = clienteRepositorio.ObterPor(email);
+            ViewData["Usuario"] = cliente;
+            return View(cliente);
         }
         public IActionResult Comentarios(){
-            ViewData["avaliacoes"] = comentarioRepositorio.Listar();
-            RecuperarUserLogado();
-            return View();
+            ViewData["comentarios"] = comentarioRepositorio.Listar();
+            var email = HttpContext.Session.GetString(SESSION_EMAIL) == null ? "" : HttpContext.Session.GetString(SESSION_EMAIL);
+            var cliente = clienteRepositorio.ObterPor(email);
+            ViewData["Usuario"] = cliente;
+            return View(cliente);
         }
         [HttpPost]
         public IActionResult RetornarComentario (IFormCollection form){
@@ -33,11 +38,6 @@ namespace Pontodigitaloficial.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        void RecuperarUserLogado(){
-            var email = HttpContext.Session.GetString(SESSION_EMAIL) == null ? "" : HttpContext.Session.GetString(SESSION_EMAIL);
-            var cliente = clienteRepositorio.ObterPor(email);
-            ViewData["Usuario"] = cliente;
-
-        }
+        //void RecuperarUserLogado(){
     }
 }

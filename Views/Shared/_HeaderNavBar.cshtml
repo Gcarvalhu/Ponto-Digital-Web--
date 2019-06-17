@@ -1,6 +1,4 @@
-@{
-    var user = (string) ViewData["User"];
-}
+
 <header class="topo">
     <div>
         <a href='@Url.Action("Index","Home")'>
@@ -13,7 +11,7 @@
                 <li><a href="#titulo_planos" title="Nossos pacotes">Planos</a></li>
                 <li><a href="#desenvolvedor" title="Quem somos">Quem somos</a></li>
                 <li><a href='@Url.Action("Index","Cadastro")' title="Serviço de atendimento ao cliente">SAC</a></li>
-                 @if (string.IsNullOrEmpty(user))
+                 @if (@Model == null)
             {
             <li><a id="bt_login" asp-controller="Cadastro" asp-action="Login" href='@Url.Action("Index","Cadastro")'>Cadastro</a></li>
             }else{

@@ -11,9 +11,10 @@ namespace Pontodigitaloficial.Controllers {
         public const string SESSION_SENHA = "_SENHA";
          public ClienteRepositorio clienteRepositorio = new ClienteRepositorio();
         public IActionResult Index(){
-            
-            return View();
-           
+            var email = HttpContext.Session.GetString(SESSION_EMAIL) == null ? "" : HttpContext.Session.GetString(SESSION_EMAIL);
+            var cliente = clienteRepositorio.ObterPor(email);
+            return View(cliente);
+    
         }
 
         public IActionResult Cadastrar(IFormCollection form){
@@ -43,12 +44,13 @@ namespace Pontodigitaloficial.Controllers {
             var clienteRetornado = clienteRepositorio.ObterPor(email);
 
             if(clienteRetornado == null){
-                System.Console.WriteLine("Usuario não encontrado");
-                clienteRetornado = clienteRepositorio.ObterPor(email);
+                System.Console.WriteLine("################ Usuario não encontrado");
+                
             }
-            if(clienteRetornado != null && senha == clienteRetornado.Senha){
+            else if(clienteRetornado != null && senha == clienteRetornado.Senha){
                 HttpContext.Session.SetString (SESSION_EMAIL, clienteRetornado.Email);
-                HttpContext.Session.SetString (SESSION_SENHA, clienteRetornado.Senha); 
+                HttpContext.Session.SetString (SESSION_SENHA, clienteRetornado.Senha);
+                System.Console.WriteLine("################ Fez login");
             }
             return RedirectToAction ("Index", "Home");
         }
